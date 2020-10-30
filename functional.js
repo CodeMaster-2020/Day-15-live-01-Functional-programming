@@ -245,10 +245,60 @@ const recipes = [
         quantity: 200
       }
     ]
+  },
+  {
+    id: 3,
+    name: "Pizza",
+    ingredients: [
+      {
+        name: "farina",
+        quantity: 500
+      },
+      {
+        name: "acqua",
+        quantity: 200
+      },
+      {
+        name: "sale",
+        quantity: 1
+      },
+      {
+        name: "lievito",
+        quantity: 1
+      },
+      {
+        name: "pomodoro",
+        quantity: 1
+      },
+      {
+        name: "mozzarella",
+        quantity: 1
+      }
+    ]
   }
 ];
 
-function searchByIngredients(recipes, ingredient) {
+function searchByIngredientsSimple(recipes, ingredientName) {
   // ritorna un array che contiene tutte le ricette
   // che hanno l'ingrediente passato come parametro
+  let filteredRecipes = [];
+  for (let i = 0; i < recipes.length; i++) {
+    const recipe = recipes[i];
+
+    for (let k = 0; k < recipe.ingredients.length; k++) {
+      const ingredient = recipe.ingredients[k];
+
+      if (ingredient.name === ingredientName) {
+        filteredRecipes.push(recipe);
+
+        break;
+      }
+    }
+  }
+
+  return filteredRecipes;
+}
+
+function searchByIngredientsFilter(recipes, ingredientName) {
+    
 }
